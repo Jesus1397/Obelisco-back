@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 
 async function main() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-  console.log('💻 Servidor dev en http://localhost:3000');
+  await app.listen(process.env.PORT);
+  console.log('💻 Servidor dev en http://localhost:' + process.env.PORT);
 }
 main();
