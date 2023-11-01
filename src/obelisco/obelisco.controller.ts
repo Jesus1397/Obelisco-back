@@ -6,12 +6,6 @@ import { join } from 'path';
 export class ObeliscoController {
   constructor(private readonly obeliscoService: ObeliscoService) {}
 
-  // @Header('Access-Control-Allow-Origin', '*')
-  // @Header(
-  //   'Access-Control-Allow-Headers',
-  //   'Origin, X-Requested-With, Content-Type, Accept',
-  // )
-  // @Header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
   @Get('footer/all')
   getFooterAllData() {
     return this.obeliscoService.footerAllData;
