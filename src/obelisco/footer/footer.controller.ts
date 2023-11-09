@@ -4,31 +4,31 @@ import { join } from 'path';
 
 @Controller('obelisco/footer')
 export class FooterController {
-  constructor(private readonly obeliscoService: FooterService) {}
+  constructor(private readonly footerService: FooterService) {}
 
   @Get('all')
   getFooterAllData() {
-    return this.obeliscoService.footerAllData;
+    return this.footerService.footerAllData;
   }
 
   @Get('phones')
   getFooterPhonesData() {
-    return this.obeliscoService.footerPhonesData;
+    return this.footerService.footerPhonesData;
   }
 
   @Get('networks')
   getFooterNetworksData() {
-    return this.obeliscoService.footerNetworksData;
+    return this.footerService.footerNetworksData;
   }
 
   @Get('links')
   getFooterLinksData() {
-    return this.obeliscoService.footerLinksData;
+    return this.footerService.footerLinksData;
   }
 
   @Get('images')
   getFooterImagesData() {
-    return this.obeliscoService.footerImagesData;
+    return this.footerService.footerImagesData;
   }
 
   @Get('images/:imageId')
@@ -36,7 +36,7 @@ export class FooterController {
     return res.sendFile(
       join(
         process.cwd(),
-        'public/footer/' + this.obeliscoService.footerImagesIndexData[imageId],
+        'public/footer/' + this.footerService.footerImagesIndexData[imageId],
       ),
     );
   }

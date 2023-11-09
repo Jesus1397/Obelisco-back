@@ -4,6 +4,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { FooterModule } from './obelisco/footer/footer.module';
+import { VersionsModule } from './obelisco/versions/versions.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { FooterModule } from './obelisco/footer/footer.module';
     }),
     ObeliscoModule,
     FooterModule,
+    VersionsModule,
   ],
   controllers: [],
   providers: [],
