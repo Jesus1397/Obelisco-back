@@ -4,14 +4,9 @@ import {
   NestModule,
   RequestMethod,
 } from '@nestjs/common';
-import { ObeliscoController } from './obelisco.controller';
-import { ObeliscoService } from './obelisco.service';
 import { CorsMiddleware } from 'src/middlewares/cors/cors.middleware';
 
-@Module({
-  controllers: [ObeliscoController],
-  providers: [ObeliscoService],
-})
+@Module({})
 export class ObeliscoModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer

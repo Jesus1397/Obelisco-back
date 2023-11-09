@@ -1,42 +1,42 @@
 import { Controller, Get, Param, Res } from '@nestjs/common';
-import { ObeliscoService } from './obelisco.service';
+import { FooterService } from './footer.service';
 import { join } from 'path';
 
-@Controller('obelisco')
-export class ObeliscoController {
-  constructor(private readonly obeliscoService: ObeliscoService) {}
+@Controller('obelisco/footer')
+export class FooterController {
+  constructor(private readonly obeliscoService: FooterService) {}
 
-  @Get('footer/all')
+  @Get('all')
   getFooterAllData() {
     return this.obeliscoService.footerAllData;
   }
 
-  @Get('footer/phones')
+  @Get('phones')
   getFooterPhonesData() {
     return this.obeliscoService.footerPhonesData;
   }
 
-  @Get('footer/networks')
+  @Get('networks')
   getFooterNetworksData() {
     return this.obeliscoService.footerNetworksData;
   }
 
-  @Get('footer/links')
+  @Get('links')
   getFooterLinksData() {
     return this.obeliscoService.footerLinksData;
   }
 
-  @Get('footer/images')
+  @Get('images')
   getFooterImagesData() {
     return this.obeliscoService.footerImagesData;
   }
 
-  @Get('footer/images/:imageId')
+  @Get('images/:imageId')
   serveImage(@Param('imageId') imageId: string, @Res() res) {
     return res.sendFile(
       join(
         process.cwd(),
-        'public/footer/' + this.obeliscoService.footerImagesData[imageId],
+        'public/footer/' + this.obeliscoService.footerImagesIndexData[imageId],
       ),
     );
   }

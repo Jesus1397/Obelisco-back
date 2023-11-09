@@ -3,6 +3,7 @@ import { ObeliscoModule } from './obelisco/obelisco.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
+import { FooterModule } from './obelisco/footer/footer.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { ConfigModule } from '@nestjs/config';
       rootPath: join(__dirname, '..', 'public'),
     }),
     ObeliscoModule,
+    FooterModule,
   ],
   controllers: [],
   providers: [],

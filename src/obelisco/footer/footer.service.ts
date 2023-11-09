@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ObeliscoService {
+export class FooterService {
   private _footerPhonesData = [
     {
       title: '102 - Niñez y Adolescencia',
@@ -90,11 +90,29 @@ export class ObeliscoService {
     },
   ];
 
-  private _footerImagesData = {
+  private _footerImagesIndexData = {
     1: 'ciudad-ba.svg',
     2: 'ciudad-ba-sm.svg',
     3: 'vamos-ba.svg',
   };
+
+  private _footerImagesData = [
+    {
+      id: 1,
+      name: 'ciudad-ba.svg',
+      url: 'http://localhost:3000/obelisco/footer/images/1',
+    },
+    {
+      id: 2,
+      name: 'ciudad-ba-sm.svg',
+      url: 'http://localhost:3000/obelisco/footer/images/2',
+    },
+    {
+      id: 3,
+      name: 'vamos-ba.svg',
+      url: 'http://localhost:3000/obelisco/footer/images/3',
+    },
+  ];
 
   private _footerAllData = {
     phonesTitle: 'Teléfonos útiles',
@@ -124,5 +142,9 @@ export class ObeliscoService {
 
   public get footerImagesData() {
     return this._footerImagesData;
+  }
+
+  public get footerImagesIndexData() {
+    return this._footerImagesIndexData;
   }
 }
