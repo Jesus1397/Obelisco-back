@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FooterService {
+  private host = process.env.HOST || 'http://localhost:3000';
+
   private _footerPhonesData = [
     {
       title: '102 - Niñez y Adolescencia',
@@ -100,17 +102,17 @@ export class FooterService {
     {
       id: 1,
       name: 'ciudad-ba.svg',
-      url: 'http://localhost:3000/obelisco/footer/images/1',
+      url: `${this.host}/obelisco/footer/images/1`,
     },
     {
       id: 2,
       name: 'ciudad-ba-sm.svg',
-      url: 'http://localhost:3000/obelisco/footer/images/2',
+      url: `${this.host}/obelisco/footer/images/2`,
     },
     {
       id: 3,
       name: 'vamos-ba.svg',
-      url: 'http://localhost:3000/obelisco/footer/images/3',
+      url: `${this.host}/obelisco/footer/images/3`,
     },
   ];
 

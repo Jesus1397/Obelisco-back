@@ -1,4 +1,10 @@
-import { Controller, Get, Param, Res } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  InternalServerErrorException,
+  Param,
+  Res,
+} from '@nestjs/common';
 import { FooterService } from './footer.service';
 import { join } from 'path';
 
@@ -33,11 +39,16 @@ export class FooterController {
 
   @Get('images/:imageId')
   serveImage(@Param('imageId') imageId: string, @Res() res) {
-    return res.sendFile(
-      join(
-        process.cwd(),
-        'public/footer/' + this.footerService.footerImagesIndexData[imageId],
-      ),
-    );
+    try {
+      return res.sendFile(
+        join(
+          process.cwd(),
+          'public/footer/' + this.footerService.footerImagesIndexData[imageId],
+        ),
+      );
+    } catch (error) {
+      console.error('Error serving image:', error);
+      throw new InternalServerErrorException('Error serving image');
+    }
   }
 }

@@ -1,4 +1,6 @@
-export const OBELISCO_VERSIONS = [
+import { ObeliscoVersion } from '../interfaces/versions.interfaces';
+
+export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   {
     version: '1.55.1',
     date: '24/10/23',
