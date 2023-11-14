@@ -117,12 +117,18 @@ export class FooterService {
   ];
 
   private _footerAllData = {
-    phonesTitle: 'Teléfonos útiles',
-    phonesData: this.footerPhonesData,
-    networksTitle: 'Redes de la ciudad',
-    networksData: this.footerNetworksData,
-    linksTitle: '-',
-    linksData: this.footerLinksData,
+    phone: {
+      phonesTitle: 'Teléfonos útiles',
+      phonesData: this.footerPhonesData,
+    },
+    networks: {
+      networksTitle: 'Redes de la ciudad',
+      networksData: this.footerNetworksData,
+    },
+    links: {
+      linksTitle: '-',
+      linksData: this.footerLinksData,
+    },
     images: this.footerImagesData,
   };
 
