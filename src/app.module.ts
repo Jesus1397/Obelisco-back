@@ -7,6 +7,7 @@ import { FooterModule } from './obelisco/footer/footer.module';
 import { VersionsModule } from './obelisco/versions/versions.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { ResolutionModule } from './obelisco/resolution/resolution.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { APP_GUARD } from '@nestjs/core';
     ObeliscoModule,
     FooterModule,
     VersionsModule,
+    ResolutionModule,
   ],
   controllers: [],
   providers: [
