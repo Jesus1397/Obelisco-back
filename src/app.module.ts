@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ObeliscoModule } from './obelisco/obelisco.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { ObeliscoModule } from './app/obelisco/obelisco.module';
 import { ConfigModule } from '@nestjs/config';
-import { FooterModule } from './obelisco/footer/footer.module';
-import { VersionsModule } from './obelisco/versions/versions.module';
+import { FooterModule } from './app/obelisco/footer/footer.module';
+import { VersionsModule } from './app/obelisco/versions/versions.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-import { ResolutionModule } from './obelisco/resolution/resolution.module';
+import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
 
 @Module({
   imports: [
@@ -18,9 +16,9 @@ import { ResolutionModule } from './obelisco/resolution/resolution.module';
         limit: 10,
       },
     ]),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
-    }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', 'public'),
+    // }),
     ObeliscoModule,
     FooterModule,
     VersionsModule,

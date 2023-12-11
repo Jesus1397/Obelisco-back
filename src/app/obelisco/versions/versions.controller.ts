@@ -2,7 +2,7 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ObeliscoVersion } from './interfaces/versions.interfaces';
 import { VersionsService } from './versions.service';
 
-@Controller('obelisco/versions')
+@Controller('api/obelisco/versions')
 export class VersionsController {
   constructor(private readonly versionService: VersionsService) {}
 
@@ -47,7 +47,7 @@ export class VersionsController {
     if (foundVersion) {
       return foundVersion;
     } else {
-      return { error: 'Versión no encontrada' };
+      return { error: 'Version not found' };
     }
   }
 }

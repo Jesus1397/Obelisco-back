@@ -2,7 +2,7 @@ import { Controller, Get, Res, StreamableFile } from '@nestjs/common';
 import type { Response } from 'express';
 import { ResolutionService } from './resolution.service';
 
-@Controller('obelisco/resolution')
+@Controller('api/obelisco/resolution')
 export class ResolutionController {
   constructor(private readonly resolutionService: ResolutionService) {}
 

@@ -8,7 +8,7 @@ import {
 import { FooterService } from './footer.service';
 import { join } from 'path';
 
-@Controller('obelisco/footer')
+@Controller('api/obelisco/footer')
 export class FooterController {
   constructor(private readonly footerService: FooterService) {}
 

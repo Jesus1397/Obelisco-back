@@ -11,6 +11,6 @@ export class ObeliscoModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(CorsMiddleware)
-      .forRoutes({ path: 'obelisco', method: RequestMethod.GET });
+      .forRoutes({ path: 'api/obelisco', method: RequestMethod.GET });
   }
 }
