@@ -6,6 +6,8 @@ import { VersionsModule } from './app/obelisco/versions/versions.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
