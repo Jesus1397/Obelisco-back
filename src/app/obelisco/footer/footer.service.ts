@@ -102,17 +102,17 @@ export class FooterService {
     {
       id: 1,
       name: 'ciudad-ba.svg',
-      url: `${this.host}/obelisco/footer/images/1`,
+      url: `${this.host}/api/obelisco/footer/images/1`,
     },
     {
       id: 2,
       name: 'ciudad-ba-sm.svg',
-      url: `${this.host}/obelisco/footer/images/2`,
+      url: `${this.host}/api/obelisco/footer/images/2`,
     },
     {
       id: 3,
       name: 'vamos-ba.svg',
-      url: `${this.host}/obelisco/footer/images/3`,
+      url: `${this.host}/api/obelisco/footer/images/3`,
     },
   ];
 
