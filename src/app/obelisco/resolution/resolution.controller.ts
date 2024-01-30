@@ -11,7 +11,7 @@ export class ResolutionController {
     const file = this.resolutionService.getResolutionStream();
     res.set({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'inline; filename="resolucion.pdf"',
+      'Content-Disposition': 'inline; filename="Resolucion-Obelisco.pdf"',
     });
 
     return new StreamableFile(file);
@@ -23,7 +23,7 @@ export class ResolutionController {
 
     res.set({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="resolucion.pdf"',
+      'Content-Disposition': 'attachment; filename="Resolucion-Obelisco.pdf"',
     });
 
     return new StreamableFile(file);

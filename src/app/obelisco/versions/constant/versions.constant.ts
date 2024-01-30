@@ -326,7 +326,7 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.45.1',
-    date: '2023-01-17',
+    date: '17/01/2023',
     pullRequest: 'fix_audio',
     changes: [
       'Modificación del ancho en componente audio',
@@ -340,19 +340,19 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.45.0',
-    date: '2023-01-17',
+    date: '17/01/2023',
     pullRequest: 'feat_mensade_de_estado',
     changes: ['Creación del componente mensaje de estado'],
   },
   {
     version: '1.44.0',
-    date: '2023-01-17',
+    date: '17/01/2023',
     pullRequest: 'feat_button_outline',
     changes: ['Creación del componente botón con borde y en caja'],
   },
   {
     version: '1.43.2',
-    date: '2023-01-17',
+    date: '17/01/2023',
     pullRequest: 'fix-radio-accesos',
     changes: [
       'css en lista de accesos para el alto del componente',
@@ -362,25 +362,25 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.43.1',
-    date: '2022-12-12',
+    date: '12/12/2022',
     pullRequest: 'fix_accordion',
     changes: ['css generales “prioridades”'],
   },
   {
     version: '1.43.0',
-    date: '2022-12-12',
+    date: '12/12/2022',
     pullRequest: 'feat',
     changes: ['Creación del componente tarjeta con icono vertical'],
   },
   {
     version: '1.42.0',
-    date: '2022-11-22',
+    date: '22/11/2022',
     pullRequest: 'feat_spinner',
     changes: ['Creación del componente spinner'],
   },
   {
     version: '1.41.1',
-    date: '2022-11-03',
+    date: '03/11/2022',
     pullRequest: 'fix_header',
     changes: [
       'Se modificaron estilos en el componente header en la versión mobile',
@@ -388,7 +388,7 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.40.0',
-    date: '2022-11-01',
+    date: '01/11/2022',
     pullRequest: 'fix_list_group',
     changes: [
       'Se agregó la variante cerrar sesión (modo info)',
@@ -397,7 +397,7 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.39.2',
-    date: '2022-11-01',
+    date: '01/11/2022',
     pullRequest: 'fix_progress_bar',
     changes: [
       'Se agregó la clase bg-color para la barra de estado. info/success',
@@ -405,7 +405,7 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.39.1',
-    date: '2022-11-01',
+    date: '01/11/2022',
     pullRequest: 'fix_dropdown',
     changes: [
       'Se agregó en desplegable con enlaces. div con button -> ul con li más a.',
@@ -413,7 +413,7 @@ export const OBELISCO_VERSIONS: ObeliscoVersion[] = [
   },
   {
     version: '1.39.0',
-    date: '2022-08-22',
+    date: '22/08/2022',
     pullRequest: 'feat',
     changes: ['Se agregan nuevos colores #97'],
   },

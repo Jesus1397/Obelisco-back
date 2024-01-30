@@ -45,12 +45,12 @@ export class FooterService {
     {
       title: 'Twitter',
       url: 'https://twitter.com/buenosaires',
-      icon: 'bxl-twitter',
+      icon: 'bx bxl-twitter',
     },
     {
       title: 'YouTube',
       url: 'https://www.youtube.com/user/GCBA',
-      icon: 'bxl-youtube',
+      icon: 'bx bxl-youtube',
     },
     {
       title: 'LinkedIn',
