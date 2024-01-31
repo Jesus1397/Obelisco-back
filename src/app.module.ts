@@ -8,6 +8,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { HeaderModule } from './app/obelisco/header/header/header.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { join } from 'path';
     FooterModule,
     VersionsModule,
     ResolutionModule,
+    HeaderModule,
   ],
   controllers: [],
   providers: [
