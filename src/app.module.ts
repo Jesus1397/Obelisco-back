@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ObeliscoModule } from './app/obelisco/obelisco.module';
 import { ConfigModule } from '@nestjs/config';
 import { FooterModule } from './app/obelisco/footer/footer.module';
@@ -8,7 +8,6 @@ import { APP_GUARD } from '@nestjs/core';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { CorsMiddleware } from './middlewares/cors/cors.middleware';
 
 @Module({
   imports: [
@@ -37,7 +36,7 @@ import { CorsMiddleware } from './middlewares/cors/cors.middleware';
   exports: [],
 })
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(CorsMiddleware).forRoutes('*');
-  }
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer.apply(CorsMiddleware).forRoutes('*');
+  // }
 }
