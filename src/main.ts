@@ -3,20 +3,17 @@ import { AppModule } from './app.module';
 
 const PORT = process.env.PORT || 3000;
 
-async function main() {
+async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
-      'http://localhost:4200',
-      'https://front-obelisco-back.netlify.app/',
-    ],
+    origin: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Habilitar si tu frontend envía cookies
+    credentials: true,
   });
 
   await app.listen(PORT);
 
-  console.log('💻 Servidor en el puerto: ' + PORT);
+  console.log(`💻 Servidor en el puerto: ${PORT}`);
 }
-main();
+bootstrap();
