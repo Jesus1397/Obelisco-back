@@ -4,6 +4,6 @@ import { GovernmentAreasService } from './government-areas.service';
 
 @Module({
   controllers: [GovernmentAreasController],
-  providers: [GovernmentAreasService]
+  providers: [GovernmentAreasService],
 })
 export class GovernmentAreasModule {}

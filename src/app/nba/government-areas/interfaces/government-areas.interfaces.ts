@@ -1,26 +1,35 @@
+interface Contact {
+  emails?: string[];
+  address?: string;
+  phone?: string;
+}
+
+interface Network {
+  title?: string;
+  url?: string;
+  icon?: string;
+}
+
+interface Map {
+  address?: string;
+  src?: string;
+}
+
+interface Leader {
+  name?: string;
+  image?: string;
+  position?: string;
+}
+
+interface Information {
+  leader?: Leader;
+  contact?: Contact;
+  networks?: Network[];
+  map?: Map;
+}
+
 export interface Area {
-  name: string;
-  information: {
-    leader: {
-      name: string;
-      image: string;
-      position: string;
-    };
-    contact: {
-      email?: string;
-      address?: string;
-      phone?: string;
-    };
-    networks: [
-      {
-        title?: string;
-        url?: string;
-        icon?: string;
-      },
-    ];
-    map: {
-      address: string;
-      src: string;
-    };
-  };
+  id: number;
+  name?: string;
+  information?: Information;
 }
