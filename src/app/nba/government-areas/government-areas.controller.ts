@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { GovernmentAreasService } from './government-areas.service';
 import { Area } from './interfaces/government-areas.interfaces';
 
@@ -19,7 +19,7 @@ export class GovernmentAreasController {
   }
 
   @Get('areas/:areaId')
-  getGovernmentAreaById(@Param('areaId') areaId: number): Area {
+  getGovernmentAreaById(@Param('areaId', ParseIntPipe) areaId: number): Area {
     return this.governmentAreasService.getAreaById(areaId);
   }
 }
