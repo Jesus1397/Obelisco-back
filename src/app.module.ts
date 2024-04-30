@@ -8,6 +8,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { HeaderModule } from './app/obelisco/header/header.module';
 import { NbaModule } from './app/nba/nba.module';
 import { GovernmentAreasModule } from './app/nba/government-areas/government-areas.module';
 
@@ -29,6 +30,7 @@ import { GovernmentAreasModule } from './app/nba/government-areas/government-are
     ResolutionModule,
     NbaModule,
     GovernmentAreasModule,
+    HeaderModule,
   ],
   controllers: [],
   providers: [
