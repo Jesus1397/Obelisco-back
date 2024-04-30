@@ -14,41 +14,70 @@ export class FooterController {
 
   @Get('all')
   getFooterAllData() {
-    return this.footerService.footerAllData;
+    try {
+      return this.footerService.footerAllData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo todos los datos del pie de página',
+      );
+    }
   }
 
   @Get('phones')
   getFooterPhonesData() {
-    return this.footerService.footerPhonesData;
+    try {
+      return this.footerService.footerPhonesData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo datos de los teléfonos del pie de página',
+      );
+    }
   }
 
   @Get('networks')
   getFooterNetworksData() {
-    return this.footerService.footerNetworksData;
+    try {
+      return this.footerService.footerNetworksData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo datos de las redes del pie de página',
+      );
+    }
   }
 
   @Get('links')
   getFooterLinksData() {
-    return this.footerService.footerLinksData;
+    try {
+      return this.footerService.footerLinksData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo datos de los enlaces del pie de página',
+      );
+    }
   }
 
   @Get('images')
   getFooterImagesData() {
-    return this.footerService.footerImagesData;
+    try {
+      return this.footerService.footerImagesData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo datos de las imágenes del pie de página',
+      );
+    }
   }
 
   @Get('images/:imageId')
   serveImage(@Param('imageId') imageId: string, @Res() res) {
     try {
-      return res.sendFile(
-        join(
-          process.cwd(),
-          'public/footer/' + this.footerService.footerImagesIndexData[imageId],
-        ),
+      const imagePath = join(
+        process.cwd(),
+        'public/footer/',
+        this.footerService.footerImagesIndexData[imageId],
       );
+      return res.sendFile(imagePath);
     } catch (error) {
-      console.error('Error serving image:', error);
-      throw new InternalServerErrorException('Error serving image');
+      throw new InternalServerErrorException('Error sirviendo la imagen');
     }
   }
 }

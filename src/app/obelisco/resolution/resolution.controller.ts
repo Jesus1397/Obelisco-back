@@ -1,4 +1,10 @@
-import { Controller, Get, Res, StreamableFile } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Res,
+  StreamableFile,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import type { Response } from 'express';
 import { ResolutionService } from './resolution.service';
 
@@ -8,24 +14,29 @@ export class ResolutionController {
 
   @Get()
   getFile(@Res({ passthrough: true }) res: Response): StreamableFile {
-    const file = this.resolutionService.getResolutionStream();
-    res.set({
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': 'inline; filename="Resolucion-Obelisco.pdf"',
-    });
-
-    return new StreamableFile(file);
+    try {
+      const file = this.resolutionService.getResolutionStream();
+      res.set({
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': 'inline; filename="Resolucion-Obelisco.pdf"',
+      });
+      return new StreamableFile(file);
+    } catch (error) {
+      throw new InternalServerErrorException('Error al obtener el archivo');
+    }
   }
 
   @Get('download')
   downloadFile(@Res({ passthrough: true }) res: Response): StreamableFile {
-    const file = this.resolutionService.getResolutionStream();
-
-    res.set({
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="Resolucion-Obelisco.pdf"',
-    });
-
-    return new StreamableFile(file);
+    try {
+      const file = this.resolutionService.getResolutionStream();
+      res.set({
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': 'attachment; filename="Resolucion-Obelisco.pdf"',
+      });
+      return new StreamableFile(file);
+    } catch (error) {
+      throw new InternalServerErrorException('Error al descargar el archivo');
+    }
   }
 }

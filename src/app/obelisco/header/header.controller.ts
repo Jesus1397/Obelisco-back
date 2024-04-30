@@ -14,21 +14,26 @@ export class HeaderController {
 
   @Get('images')
   getHeaderImageData() {
-    return this.headerService.headerImagesData;
+    try {
+      return this.headerService.headerImagesData;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Error obteniendo datos de las imágenes del encabezado',
+      );
+    }
   }
 
   @Get('images/:imageId')
   serveImage(@Param('imageId') imageId: string, @Res() res) {
     try {
-      return res.sendFile(
-        join(
-          process.cwd(),
-          'public/header/' + this.headerService.headerImagesIndexData[imageId],
-        ),
+      const imagePath = join(
+        process.cwd(),
+        'public/header/',
+        this.headerService.headerImagesIndexData[imageId],
       );
+      return res.sendFile(imagePath);
     } catch (error) {
-      console.error('Error serving image:', error);
-      throw new InternalServerErrorException('Error serving image');
+      throw new InternalServerErrorException('Error sirviendo la imagen');
     }
   }
 }
