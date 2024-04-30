@@ -6,14 +6,14 @@ export class HeaderService {
 
   private _headerImagesData = [
     {
-      id: 'logo',
+      id: 1,
       name: 'logotipo_ba.svg',
       alt: 'Gobierno de la Ciudad de Buenos Aires - Inicio',
       url: `${this.host}/api/obelisco/header/images/logo`,
     },
   ];
   private _headerImagesIndexData = {
-    logo: 'logotipo_ba.svg',
+    1: 'logotipo_ba.svg',
   };
 
   public get headerImagesData() {
