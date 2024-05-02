@@ -4,22 +4,33 @@ import { OBELISCO_VERSIONS } from './constant/versions.constant';
 
 @Injectable()
 export class VersionsService {
-  private _obeliscoVersions: ObeliscoVersion[] = OBELISCO_VERSIONS;
-  private _obeliscoVersionsAsc: ObeliscoVersion[] = [];
-  private _obeliscoVersionsDesc: ObeliscoVersion[] = [];
+  private _obeliscoVersions: { versions: ObeliscoVersion[] } =
+    OBELISCO_VERSIONS;
+  private _obeliscoVersionsAsc: { versions: ObeliscoVersion[] } = {
+    versions: [],
+  };
+  private _obeliscoVersionsDesc: { versions: ObeliscoVersion[] } = {
+    versions: [],
+  };
 
   constructor() {
     this.sortVersions();
   }
 
   private sortVersions() {
-    this._obeliscoVersionsAsc = [...this._obeliscoVersions].sort((a, b) =>
-      this.compareVersions(b.version, a.version),
-    );
+    const versions = this._obeliscoVersions.versions;
 
-    this._obeliscoVersionsDesc = [...this._obeliscoVersions].sort((a, b) =>
-      this.compareVersions(a.version, b.version),
-    );
+    this._obeliscoVersionsAsc = {
+      versions: [...versions].sort((a, b) =>
+        this.compareVersions(b.version, a.version),
+      ),
+    };
+
+    this._obeliscoVersionsDesc = {
+      versions: [...versions].sort((a, b) =>
+        this.compareVersions(a.version, b.version),
+      ),
+    };
   }
 
   private compareVersions(versionA: string, versionB: string): number {
@@ -41,11 +52,11 @@ export class VersionsService {
     return 0;
   }
 
-  public get versionsAllData() {
+  public get versionsAllData(): { versions: ObeliscoVersion[] } {
     return this._obeliscoVersionsAsc;
   }
 
-  public get versionsAllDataDesc() {
+  public get versionsAllDataDesc(): { versions: ObeliscoVersion[] } {
     return this._obeliscoVersionsDesc;
   }
 }

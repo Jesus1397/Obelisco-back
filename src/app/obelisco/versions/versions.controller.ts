@@ -13,7 +13,7 @@ export class VersionsController {
   constructor(private readonly versionService: VersionsService) {}
 
   @Get('all')
-  getVersionAllData(): ObeliscoVersion[] {
+  getVersionAllData(): { versions: ObeliscoVersion[] } {
     try {
       return this.versionService.versionsAllData;
     } catch (error) {
@@ -22,21 +22,21 @@ export class VersionsController {
   }
 
   @Get('list')
-  getVersionList(
-    @Query('order') order: string,
-  ): { version: string; date: string }[] {
+  getVersionList(@Query('order') order: string): {
+    versions: { version: string; date: string }[];
+  } {
     try {
       let versionList: { version: string; date: string }[];
 
       if (order && order.toLowerCase() === 'desc') {
-        versionList = this.versionService.versionsAllDataDesc.map(
+        versionList = this.versionService.versionsAllDataDesc.versions.map(
           (obeliscoVersion) => ({
             version: obeliscoVersion.version,
             date: obeliscoVersion.date,
           }),
         );
       } else {
-        versionList = this.versionService.versionsAllData.map(
+        versionList = this.versionService.versionsAllData.versions.map(
           (obeliscoVersion) => ({
             version: obeliscoVersion.version,
             date: obeliscoVersion.date,
@@ -44,7 +44,7 @@ export class VersionsController {
         );
       }
 
-      return versionList;
+      return { versions: versionList };
     } catch (error) {
       throw new NotFoundException('No se pudo obtener la lista de versiones');
     }
@@ -55,7 +55,7 @@ export class VersionsController {
     @Param('version') version: string,
   ): ObeliscoVersion | { error: string } {
     try {
-      const foundVersion = this.versionService.versionsAllData.find(
+      const foundVersion = this.versionService.versionsAllData.versions.find(
         (obeliscoVersion) => obeliscoVersion.version === version,
       );
 

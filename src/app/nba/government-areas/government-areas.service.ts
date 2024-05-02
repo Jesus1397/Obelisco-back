@@ -482,21 +482,23 @@ export class GovernmentAreasService {
     },
   };
 
-  private _governmentAreas: Area[] = [
-    this._chiefOfGovernment,
-    this._viceChiefOfGovernment,
-    this._chiefOfCabinetOfMinisters,
-    this._ministryOfCulture,
-    this._ministryOfEconomicDevelopment,
-    this._ministryOfHumanDevelopmentAndHousing,
-    this._ministryOfEducation,
-    this._ministryOfJustice,
-    this._ministryOfSecurity,
-    this._ministryOfHealth,
-    this._ministryOfPublicSpaceAndUrbanHygiene,
-    this._ministryOfFinance,
-    this._ministryOfInfrastructure,
-  ];
+  private _governmentAreas: { areas: Area[] } = {
+    areas: [
+      this._chiefOfGovernment,
+      this._viceChiefOfGovernment,
+      this._chiefOfCabinetOfMinisters,
+      this._ministryOfCulture,
+      this._ministryOfEconomicDevelopment,
+      this._ministryOfHumanDevelopmentAndHousing,
+      this._ministryOfEducation,
+      this._ministryOfJustice,
+      this._ministryOfSecurity,
+      this._ministryOfHealth,
+      this._ministryOfPublicSpaceAndUrbanHygiene,
+      this._ministryOfFinance,
+      this._ministryOfInfrastructure,
+    ],
+  };
 
   private _governmentAreasIndexData = {
     1: 'Jefatura de Gobierno',
@@ -523,7 +525,7 @@ export class GovernmentAreasService {
   }
 
   public getAreaById(areaId: number): Area {
-    const area = this._governmentAreas.find((area) => {
+    const area = this._governmentAreas.areas.find((area) => {
       return area.id === areaId;
     });
 
