@@ -3,8 +3,6 @@ import { ObeliscoModule } from './app/obelisco/obelisco.module';
 import { ConfigModule } from '@nestjs/config';
 import { FooterModule } from './app/obelisco/footer/footer.module';
 import { VersionsModule } from './app/obelisco/versions/versions.module';
-import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
-import { APP_GUARD } from '@nestjs/core';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
@@ -15,12 +13,12 @@ import { GovernmentAreasModule } from './app/nba/government-areas/government-are
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60000,
-        limit: 10,
-      },
-    ]),
+    // ThrottlerModule.forRoot([
+    //   {
+    //     ttl: 60000,
+    //     limit: 10,
+    //   },
+    // ]),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
@@ -33,12 +31,12 @@ import { GovernmentAreasModule } from './app/nba/government-areas/government-are
     HeaderModule,
   ],
   controllers: [],
-  providers: [
-    {
-      provide: APP_GUARD,
-      useClass: ThrottlerGuard,
-    },
-  ],
+  // providers: [
+  //   {
+  //     provide: APP_GUARD,
+  //     useClass: ThrottlerGuard,
+  //   },
+  // ],
   exports: [],
 })
 export class AppModule {}
