@@ -1,16 +1,10 @@
-import {
-  MiddlewareConsumer,
-  Module,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
-import { CorsMiddleware } from 'src/middlewares/cors/cors.middleware';
+import { Module } from '@nestjs/common';
+import { FooterModule } from './footer/footer.module';
+import { HeaderModule } from './header/header.module';
+import { ResolutionModule } from './resolution/resolution.module';
+import { VersionsModule } from './versions/versions.module';
 
-@Module({})
-export class ObeliscoModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(CorsMiddleware)
-      .forRoutes({ path: 'api/obelisco', method: RequestMethod.GET });
-  }
-}
+@Module({
+  imports: [FooterModule, HeaderModule, ResolutionModule, VersionsModule],
+})
+export class ObeliscoModule {}

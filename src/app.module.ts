@@ -4,24 +4,15 @@ import { ConfigModule } from '@nestjs/config';
 import { FooterModule } from './app/obelisco/footer/footer.module';
 import { VersionsModule } from './app/obelisco/versions/versions.module';
 import { ResolutionModule } from './app/obelisco/resolution/resolution.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
 import { HeaderModule } from './app/obelisco/header/header.module';
 import { NbaModule } from './app/nba/nba.module';
 import { GovernmentAreasModule } from './app/nba/government-areas/government-areas.module';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    // ThrottlerModule.forRoot([
-    //   {
-    //     ttl: 60000,
-    //     limit: 10,
-    //   },
-    // ]),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
-    }),
     ObeliscoModule,
     FooterModule,
     VersionsModule,
@@ -29,14 +20,23 @@ import { GovernmentAreasModule } from './app/nba/government-areas/government-are
     NbaModule,
     GovernmentAreasModule,
     HeaderModule,
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', 'public'),
+    // }),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 10,
+      },
+    ]),
   ],
   controllers: [],
-  // providers: [
-  //   {
-  //     provide: APP_GUARD,
-  //     useClass: ThrottlerGuard,
-  //   },
-  // ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ],
   exports: [],
 })
 export class AppModule {}
