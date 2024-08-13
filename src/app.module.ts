@@ -20,9 +20,9 @@ import { APP_GUARD } from '@nestjs/core';
     NbaModule,
     GovernmentAreasModule,
     HeaderModule,
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(__dirname, '..', 'public'),
-    // }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     ThrottlerModule.forRoot([
       {
         ttl: 60,
